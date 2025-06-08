@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -11,8 +12,52 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Download, Sparkles, ChevronDown, ExternalLink } from "lucide-react";
+import TypeIt from "typeit";
 
-export default function HeroSection() {
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface HeroSectionProps {
+  stats?: StatItem[];
+}
+
+export default function HeroSection({ stats = [] }: HeroSectionProps) {
+  const typeItRef = useRef<HTMLSpanElement>(null);
+
+  // 기본 통계 데이터
+  const defaultStats: StatItem[] = [
+    { value: "50+", label: "Prompts" },
+    { value: "5", label: "Categories" },
+    { value: "3", label: "Languages" }
+  ];
+
+  // props로 받은 stats가 있으면 사용하고, 없으면 기본값 사용
+  const displayStats = stats.length > 0 ? stats : defaultStats;
+
+  useEffect(() => {
+    if (typeItRef.current) {
+      new TypeIt(typeItRef.current, {
+        speed: 80,
+        waitUntilVisible: true,
+        loop: false,
+      })
+        .type("Design Workflow", { delay: 2500 })
+        .delete(8) // "Workflow" 삭제 (8글자)
+        .type("Tasks", { delay: 2000 })
+        .delete(5) // "Tasks" 삭제 (5글자)
+        .type("Annotations", { delay: 2000 })
+        .delete(11) // "Annotations" 삭제 (11글자)
+        .type("Handoff", { delay: 2000 })
+        .delete(7) // "Handoff" 삭제 (7글자)
+        .type("Documentation", { delay: 2000 })
+        .delete(13) // "Documentation" 삭제 (13글자)
+        .type("with MCP", { delay: 2000 })
+        .go();
+    }
+  }, []);
+
   const handlePlaygroundLink = (url: string) => {
     console.log('Playground link clicked:', url);
     // 새 창에서 Figma 파일 열기
@@ -51,16 +96,19 @@ export default function HeroSection() {
             </Badge>
             
             <h1 className="text-3xl lg:text-5xl font-bold tracking-tight">
-              Supercharge Your
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {" "}Figma Workflow
+              Automate Your
+              <span 
+                ref={typeItRef}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block min-h-[1.2em]"
+              >
+                {" "}
               </span>
             </h1>
             
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
+            {/* <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
               Discover powerful MCP prompts that automate your design process. 
               Streamline your workflow with AI-powered automation.
-            </p>
+            </p> */}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center relative z-20">
@@ -110,18 +158,12 @@ export default function HeroSection() {
 
           {/* Stats */}
           <div className="flex justify-center gap-6 pt-2">
-            <div className="text-center">
-              <div className="text-xl font-bold text-primary">50+</div>
-              <div className="text-xs text-muted-foreground">Prompts</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl font-bold text-primary">5</div>
-              <div className="text-xs text-muted-foreground">Categories</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl font-bold text-primary">3</div>
-              <div className="text-xs text-muted-foreground">Languages</div>
-            </div>
+            {displayStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-xl font-bold text-primary">{stat.value}</div>
+                <div className="text-xs text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

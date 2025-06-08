@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +9,17 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import HeroSection from "@/components/hero-section";
+import Contributors from "@/components/contributors";
+import Footer from "@/components/footer";
+import PromptCard from "@/components/prompt-card";
+import { 
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import { Search, X, Filter, Globe, Wand2, MessageSquare, RefreshCw, GitBranch, Palette } from "lucide-react";
 
 interface Prompt {
@@ -46,6 +56,9 @@ export default function PromptClient({ prompts }: PromptClientProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [showMoreLanguages, setShowMoreLanguages] = useState(false);
   const [showMoreTags, setShowMoreTags] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const ITEMS_PER_PAGE = 12;
 
   // URL 업데이트 함수
   const updateURL = useCallback((newCategories: string[], newLanguages: string[], newTags: string[], newSearchQuery: string) => {
@@ -95,6 +108,36 @@ export default function PromptClient({ prompts }: PromptClientProps) {
     return matchesCategory && matchesLanguage && matchesTags && matchesSearch;
   });
 
+  // HeroSection을 위한 실제 통계 데이터 계산
+  const heroStats = [
+    { value: `${prompts.length}+`, label: "Prompts" },
+    { value: `${categories.length}`, label: "Categories" },
+    { value: `${languages.length}`, label: "Languages" }
+  ];
+
+  // 페이지네이션 계산
+  const totalPages = Math.ceil(filteredPrompts.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedPrompts = filteredPrompts.slice(startIndex, endIndex);
+
+  // 디버깅을 위한 console.log
+  console.log('Pagination Debug:', {
+    totalPrompts: prompts.length,
+    filteredPrompts: filteredPrompts.length,
+    currentPage,
+    totalPages,
+    startIndex,
+    endIndex,
+    paginatedPrompts: paginatedPrompts.length,
+    ITEMS_PER_PAGE
+  });
+
+  // 필터가 변경되면 첫 페이지로 이동
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategories, selectedLanguages, selectedTags, searchQuery]);
+
   const handleTagToggle = (tag: string, checked: boolean) => {
     const newTags = checked 
       ? [...selectedTags, tag]
@@ -127,7 +170,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <HeroSection />
+      <HeroSection stats={heroStats} />
 
       <div id="prompts" className="container mx-auto px-4 py-8">
         <div className="flex gap-8">
@@ -271,10 +314,20 @@ export default function PromptClient({ prompts }: PromptClientProps) {
           <div className="flex-1">
             <div className="mb-6">
               <h2 className="text-2xl font-semibold tracking-tight">
-                {filteredPrompts.length} Prompts
+                {filteredPrompts.length} Prompts 
+                {totalPages > 1 && (
+                  <span className="text-sm font-normal text-muted-foreground ml-2">
+                    (Page {currentPage} of {totalPages})
+                  </span>
+                )}
               </h2>
               <p className="text-muted-foreground">
                 Explore our curated collection of Figma MCP prompts
+                {prompts.length !== filteredPrompts.length && (
+                  <span className="block text-sm mt-1">
+                    Showing {paginatedPrompts.length} of {filteredPrompts.length} filtered results from {prompts.length} total prompts
+                  </span>
+                )}
               </p>
               
               {/* Search */}
@@ -350,51 +403,56 @@ export default function PromptClient({ prompts }: PromptClientProps) {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {filteredPrompts.map(prompt => {
-                const category = categories.find(c => c.id === prompt.category);
-                return (
-                  <Link key={prompt.slug} href={`/prompts/${prompt.slug}`}>
-                    <Card className="group hover:shadow-lg transition-all duration-200 cursor-pointer">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between">
-                          <Badge variant="secondary" className="text-xs flex items-center gap-1">
-                            <Globe className="h-3 w-3" />
-                            {prompt.language}
-                          </Badge>
-                        </div>
-                        <CardTitle className="text-lg leading-6">
-                          {prompt.title}
-                        </CardTitle>
-                        <CardDescription className="line-clamp-3 text-sm">
-                          {prompt.content ? prompt.content.substring(0, 150) + '...' : 'No content available'}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="pt-0">
-                        <div className="space-y-3">
-                          <Badge variant="outline" className="font-medium flex items-center gap-1 w-fit">
-                            {category?.icon && <category.icon className="h-3 w-3" />}
-                            {category?.title}
-                          </Badge>
-                          
-                          <div className="flex flex-wrap gap-1">
-                            {prompt.tags.slice(0, 3).map(tag => (
-                              <Badge key={tag} variant="secondary" className="text-xs">
-                                {tag}
-                              </Badge>
-                            ))}
-                            {prompt.tags.length > 3 && (
-                              <Badge variant="secondary" className="text-xs">
-                                +{prompt.tags.length - 3}
-                              </Badge>
-                            )}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                );
-              })}
+              {paginatedPrompts.map(prompt => (
+                <PromptCard key={prompt.slug} prompt={prompt} />
+              ))}
             </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-center mt-8">
+                <Pagination>
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious 
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (currentPage > 1) setCurrentPage(currentPage - 1);
+                        }}
+                        className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}
+                      />
+                    </PaginationItem>
+                    
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                      <PaginationItem key={page}>
+                        <PaginationLink
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setCurrentPage(page);
+                          }}
+                          isActive={currentPage === page}
+                        >
+                          {page}
+                        </PaginationLink>
+                      </PaginationItem>
+                    ))}
+                    
+                    <PaginationItem>
+                      <PaginationNext 
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                        }}
+                        className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}
+                      />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            )}
 
             {filteredPrompts.length === 0 && (
               <Card className="p-12 text-center">
@@ -408,6 +466,12 @@ export default function PromptClient({ prompts }: PromptClientProps) {
           </div>
         </div>
       </div>
+      
+      {/* Contributors Section */}
+      <Contributors />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 } 

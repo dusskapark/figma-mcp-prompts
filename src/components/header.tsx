@@ -88,7 +88,7 @@ export default function Header() {
         <div className="flex items-center space-x-2">
           <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex">
             <a
-              href="https://github.com/figma/figma-mcp"
+              href="https://github.com/FigmaAI/figma-mcp-prompts"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -97,11 +97,13 @@ export default function Header() {
             </a>
           </Button>
           <ThemeToggle />
-          <Button size="sm" asChild>
-            <Link href="/api/keystatic" className="flex items-center gap-2">
-              <Plus className="h-4 w-4" />
-              Add Prompt
-            </Link>
+          <Button 
+            size="sm" 
+            onClick={() => window.open('https://github.com/FigmaAI/figma-mcp-prompts/blob/main/CONTRIBUTING.md', '_blank', 'noopener,noreferrer')}
+            className="flex items-center gap-2"
+          >
+            <Plus className="h-4 w-4" />
+            Add Prompt
           </Button>
         </div>
       </div>
