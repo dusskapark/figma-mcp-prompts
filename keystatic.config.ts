@@ -2,11 +2,7 @@ import { config, fields, collection } from '@keystatic/core';
 
 export default config({
   storage: {
-    kind: 'github',
-    repo: {
-      owner: 'dusskapark',
-      name: 'figma-mcp-prompts',
-    },
+    kind: 'local'
   },
   ui: {
     brand: {

@@ -1,6 +1,7 @@
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../keystatic.config';
 import PromptClient from './prompt-client';
+import { Suspense } from 'react';
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
@@ -155,5 +156,9 @@ async function getPrompts(): Promise<Prompt[]> {
 export default async function Home() {
   const prompts = await getPrompts();
   
-  return <PromptClient prompts={prompts} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PromptClient prompts={prompts} />
+    </Suspense>
+  );
 }

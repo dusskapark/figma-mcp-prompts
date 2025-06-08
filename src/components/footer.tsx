@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ExternalLink, Heart } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export default function Footer() {
   return (

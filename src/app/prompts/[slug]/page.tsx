@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-
 import { ArrowLeft, Globe, Wand2, MessageSquare, RefreshCw, GitBranch, Palette } from "lucide-react";
 import { CopyButton } from "@/components/copy-button";
 import ReactMarkdown from 'react-markdown';
@@ -52,12 +51,33 @@ function parseContent(content: string) {
   };
 }
 
+// Generate static params for all prompts
+export async function generateStaticParams() {
+  try {
+    const allPrompts = await reader.collections.prompts.all();
+    return allPrompts.map((prompt) => ({
+      slug: prompt.slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
+}
+
 async function getPrompt(slug: string): Promise<Prompt | null> {
   try {
+    console.log('Loading prompt:', slug);
     const prompt = await reader.collections.prompts.read(slug);
-    if (!prompt) return null;
+    console.log('Prompt data:', prompt);
+    
+    if (!prompt) {
+      console.log('No prompt found for slug:', slug);
+      return null;
+    }
     
     const content = await prompt.content();
+    console.log('Content loaded successfully');
+    
     return {
       slug,
       title: prompt.title,
@@ -67,7 +87,7 @@ async function getPrompt(slug: string): Promise<Prompt | null> {
       content
     };
   } catch (error) {
-    console.error('Error loading prompt:', error);
+    console.error('Error loading prompt:', slug, error);
     return null;
   }
 }
