@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Figma MCP Magic 🎨
+
+A curated collection of prompts for Figma MCP (Model Context Protocol) automation.
+
+## Features
+
+- 50+ prompts across 5 categories
+- Multi-language support (English, Korean, Chinese)
+- Interactive playground files
+- Advanced filtering system
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/FigmaAI/figma-mcp-prompts.git
+cd figma-mcp-prompts
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Resources
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [English Playground](https://www.figma.com/design/Ou0fh46uSOmaRbkdqWo57T/Design-Automation-with-Figma-MCP)
+- [Korean Playground](https://www.figma.com/design/58mNjcrt16BdyaoeIAaqRE/작업-시간을-단축해주는-MCP-디자인-오토메이션)
+- [Tutorial Videos](https://youtube.com/playlist?list=PLLQlZaiiGlHOdfqGoErLQaMaDPZdHARVV)
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 15 • Tailwind CSS • shadcn/ui • Keystatic CMS
