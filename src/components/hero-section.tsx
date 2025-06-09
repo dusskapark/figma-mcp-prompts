@@ -130,9 +130,9 @@ export default function HeroSection({ stats = [] }: HeroSectionProps) {
             </h1>
 
             {/* <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
-               Discover powerful MCP prompts that automate your design process. 
-               Streamline your workflow with AI-powered automation.
-              </p> */}
+                Discover powerful MCP prompts that automate your design process. 
+                Streamline your workflow with AI-powered automation.
+               </p> */}
           </div>
 
           <div

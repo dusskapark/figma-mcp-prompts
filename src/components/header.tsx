@@ -60,7 +60,10 @@ export default function Header() {
             className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             data-oid="ngxxsxr"
           >
-            Figma MCP Magic
+            <span className="hidden sm:inline" data-oid="2ar:x_y">
+              Figma{" "}
+            </span>
+            MCP Magic
           </span>
         </Link>
 
