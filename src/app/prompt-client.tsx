@@ -14,6 +14,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import HeroSection from "@/components/hero-section";
 import Contributors from "@/components/contributors";
 import Footer from "@/components/footer";
@@ -73,6 +81,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
   const [showMoreLanguages, setShowMoreLanguages] = useState(false);
   const [showMoreTags, setShowMoreTags] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const ITEMS_PER_PAGE = 12;
 
@@ -202,6 +211,189 @@ export default function PromptClient({ prompts }: PromptClientProps) {
     updateURL(selectedCategories, selectedLanguages, selectedTags, value);
   };
 
+  // Filter Section Component
+  const FilterSection = ({ className = "" }: { className?: string }) => (
+    <Card className={className} data-oid="nc6v_4r">
+      <CardHeader data-oid="o9765iu">
+        <CardTitle className="flex items-center gap-2" data-oid="szjlk86">
+          <Filter className="h-4 w-4" data-oid="pj.se9r" />
+          Filter by
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6" data-oid="obxmh4g">
+        {/* Categories */}
+        <div className="space-y-3" data-oid="ol.:i5:">
+          <div className="flex items-center justify-between" data-oid="dhw3x_l">
+            <Label data-oid="8p6.9u3">Choose a category</Label>
+            {selectedCategories.length > 0 && (
+              <Button
+                variant="link"
+                size="sm"
+                onClick={() => {
+                  setSelectedCategories([]);
+                  updateURL([], selectedLanguages, selectedTags, searchQuery);
+                }}
+                className="h-auto p-0 text-xs text-primary"
+                data-oid="rqi94mj"
+              >
+                Reset
+              </Button>
+            )}
+          </div>
+          <div className="space-y-2" data-oid="s:pofgv">
+            {categories.map((category) => (
+              <div
+                key={category.id}
+                className="flex items-center space-x-2"
+                data-oid="h0.70qr"
+              >
+                <Checkbox
+                  id={category.id}
+                  checked={selectedCategories.includes(category.id)}
+                  onCheckedChange={(checked) =>
+                    handleCategoryToggle(category.id, !!checked)
+                  }
+                  data-oid="_c2ikkk"
+                />
+
+                <Label
+                  htmlFor={category.id}
+                  className="text-sm font-normal flex items-center gap-2"
+                  data-oid="-pyrxf9"
+                >
+                  <category.icon className="h-3 w-3" data-oid="54j5ao6" />
+
+                  {category.title}
+                </Label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Languages */}
+        <div className="space-y-3" data-oid="rus05l0">
+          <div className="flex items-center justify-between" data-oid="qncsg-2">
+            <Label data-oid="596tjt:">Language</Label>
+            {selectedLanguages.length > 0 && (
+              <Button
+                variant="link"
+                size="sm"
+                onClick={() => {
+                  setSelectedLanguages([]);
+                  updateURL(selectedCategories, [], selectedTags, searchQuery);
+                }}
+                className="h-auto p-0 text-xs text-primary"
+                data-oid=".n8ai_v"
+              >
+                Reset
+              </Button>
+            )}
+          </div>
+          <div className="space-y-2" data-oid="xttjxnu">
+            {languages
+              .slice(0, showMoreLanguages ? languages.length : 5)
+              .map((language) => (
+                <div
+                  key={language}
+                  className="flex items-center space-x-2"
+                  data-oid="p0b2u5b"
+                >
+                  <Checkbox
+                    id={`lang-${language}`}
+                    checked={selectedLanguages.includes(language)}
+                    onCheckedChange={(checked) =>
+                      handleLanguageToggle(language, !!checked)
+                    }
+                    data-oid="-1jtabx"
+                  />
+
+                  <Label
+                    htmlFor={`lang-${language}`}
+                    className="text-sm font-normal"
+                    data-oid="ajqpmj:"
+                  >
+                    {language}
+                  </Label>
+                </div>
+              ))}
+            {languages.length > 5 && (
+              <Button
+                variant="link"
+                size="sm"
+                onClick={() => setShowMoreLanguages(!showMoreLanguages)}
+                className="h-auto p-0 text-xs text-muted-foreground"
+                data-oid="xljeou5"
+              >
+                {showMoreLanguages ? "Less" : "More"}
+              </Button>
+            )}
+          </div>
+        </div>
+
+        {/* Tags */}
+        <div className="space-y-3" data-oid="a6d3tpc">
+          <div className="flex items-center justify-between" data-oid="myd2upk">
+            <Label data-oid="uyne1v-">Tags</Label>
+            {selectedTags.length > 0 && (
+              <Button
+                variant="link"
+                size="sm"
+                onClick={() => {
+                  setSelectedTags([]);
+                  updateURL(
+                    selectedCategories,
+                    selectedLanguages,
+                    [],
+                    searchQuery,
+                  );
+                }}
+                className="h-auto p-0 text-xs text-primary"
+                data-oid="7i:dhxp"
+              >
+                Reset
+              </Button>
+            )}
+          </div>
+          <div className="space-y-2" data-oid="j3.1fdy">
+            {allTags.slice(0, showMoreTags ? allTags.length : 5).map((tag) => (
+              <div
+                key={tag}
+                className="flex items-center space-x-2"
+                data-oid="2vjro8c"
+              >
+                <Checkbox
+                  id={tag}
+                  checked={selectedTags.includes(tag)}
+                  onCheckedChange={(checked) => handleTagToggle(tag, !!checked)}
+                  data-oid="7zcbpw3"
+                />
+
+                <Label
+                  htmlFor={tag}
+                  className="text-sm font-normal"
+                  data-oid=".fmui-t"
+                >
+                  {tag}
+                </Label>
+              </div>
+            ))}
+            {allTags.length > 5 && (
+              <Button
+                variant="link"
+                size="sm"
+                onClick={() => setShowMoreTags(!showMoreTags)}
+                className="h-auto p-0 text-xs text-muted-foreground"
+                data-oid="qs:3qag"
+              >
+                {showMoreTags ? "Less" : "More"}
+              </Button>
+            )}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <div className="min-h-screen bg-background" data-oid="ym.ll:5">
       {/* Hero Section */}
@@ -212,235 +404,95 @@ export default function PromptClient({ prompts }: PromptClientProps) {
         className="container mx-auto px-4 py-8"
         data-oid="quamr3c"
       >
-        <div className="flex gap-8" data-oid="5x76vky">
-          {/* Left Sidebar - Filters */}
-          <div className="w-80 flex-shrink-0" data-oid="7j-pg.r">
-            <Card className="sticky top-8" data-oid="nc6v_4r">
-              <CardHeader data-oid="o9765iu">
-                <CardTitle
-                  className="flex items-center gap-2"
-                  data-oid="szjlk86"
-                >
-                  <Filter className="h-4 w-4" data-oid="pj.se9r" />
-                  Filter by
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6" data-oid="obxmh4g">
-                {/* Categories */}
-                <div className="space-y-3" data-oid="ol.:i5:">
-                  <div
-                    className="flex items-center justify-between"
-                    data-oid="dhw3x_l"
-                  >
-                    <Label data-oid="8p6.9u3">Choose a category</Label>
-                    {selectedCategories.length > 0 && (
-                      <Button
-                        variant="link"
-                        size="sm"
-                        onClick={() => {
-                          setSelectedCategories([]);
-                          updateURL(
-                            [],
-                            selectedLanguages,
-                            selectedTags,
-                            searchQuery,
-                          );
-                        }}
-                        className="h-auto p-0 text-xs text-primary"
-                        data-oid="rqi94mj"
-                      >
-                        Reset
-                      </Button>
-                    )}
-                  </div>
-                  <div className="space-y-2" data-oid="s:pofgv">
-                    {categories.map((category) => (
-                      <div
-                        key={category.id}
-                        className="flex items-center space-x-2"
-                        data-oid="h0.70qr"
-                      >
-                        <Checkbox
-                          id={category.id}
-                          checked={selectedCategories.includes(category.id)}
-                          onCheckedChange={(checked) =>
-                            handleCategoryToggle(category.id, !!checked)
-                          }
-                          data-oid="_c2ikkk"
-                        />
-
-                        <Label
-                          htmlFor={category.id}
-                          className="text-sm font-normal flex items-center gap-2"
-                          data-oid="-pyrxf9"
-                        >
-                          <category.icon
-                            className="h-3 w-3"
-                            data-oid="54j5ao6"
-                          />
-                          {category.title}
-                        </Label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Languages */}
-                <div className="space-y-3" data-oid="rus05l0">
-                  <div
-                    className="flex items-center justify-between"
-                    data-oid="qncsg-2"
-                  >
-                    <Label data-oid="596tjt:">Language</Label>
-                    {selectedLanguages.length > 0 && (
-                      <Button
-                        variant="link"
-                        size="sm"
-                        onClick={() => {
-                          setSelectedLanguages([]);
-                          updateURL(
-                            selectedCategories,
-                            [],
-                            selectedTags,
-                            searchQuery,
-                          );
-                        }}
-                        className="h-auto p-0 text-xs text-primary"
-                        data-oid=".n8ai_v"
-                      >
-                        Reset
-                      </Button>
-                    )}
-                  </div>
-                  <div className="space-y-2" data-oid="xttjxnu">
-                    {languages
-                      .slice(0, showMoreLanguages ? languages.length : 5)
-                      .map((language) => (
-                        <div
-                          key={language}
-                          className="flex items-center space-x-2"
-                          data-oid="p0b2u5b"
-                        >
-                          <Checkbox
-                            id={`lang-${language}`}
-                            checked={selectedLanguages.includes(language)}
-                            onCheckedChange={(checked) =>
-                              handleLanguageToggle(language, !!checked)
-                            }
-                            data-oid="-1jtabx"
-                          />
-
-                          <Label
-                            htmlFor={`lang-${language}`}
-                            className="text-sm font-normal"
-                            data-oid="ajqpmj:"
-                          >
-                            {language}
-                          </Label>
-                        </div>
-                      ))}
-                    {languages.length > 5 && (
-                      <Button
-                        variant="link"
-                        size="sm"
-                        onClick={() => setShowMoreLanguages(!showMoreLanguages)}
-                        className="h-auto p-0 text-xs text-muted-foreground"
-                        data-oid="xljeou5"
-                      >
-                        {showMoreLanguages ? "Less" : "More"}
-                      </Button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div className="space-y-3" data-oid="a6d3tpc">
-                  <div
-                    className="flex items-center justify-between"
-                    data-oid="myd2upk"
-                  >
-                    <Label data-oid="uyne1v-">Tags</Label>
-                    {selectedTags.length > 0 && (
-                      <Button
-                        variant="link"
-                        size="sm"
-                        onClick={() => {
-                          setSelectedTags([]);
-                          updateURL(
-                            selectedCategories,
-                            selectedLanguages,
-                            [],
-                            searchQuery,
-                          );
-                        }}
-                        className="h-auto p-0 text-xs text-primary"
-                        data-oid="7i:dhxp"
-                      >
-                        Reset
-                      </Button>
-                    )}
-                  </div>
-                  <div className="space-y-2" data-oid="j3.1fdy">
-                    {allTags
-                      .slice(0, showMoreTags ? allTags.length : 5)
-                      .map((tag) => (
-                        <div
-                          key={tag}
-                          className="flex items-center space-x-2"
-                          data-oid="2vjro8c"
-                        >
-                          <Checkbox
-                            id={tag}
-                            checked={selectedTags.includes(tag)}
-                            onCheckedChange={(checked) =>
-                              handleTagToggle(tag, !!checked)
-                            }
-                            data-oid="7zcbpw3"
-                          />
-
-                          <Label
-                            htmlFor={tag}
-                            className="text-sm font-normal"
-                            data-oid=".fmui-t"
-                          >
-                            {tag}
-                          </Label>
-                        </div>
-                      ))}
-                    {allTags.length > 5 && (
-                      <Button
-                        variant="link"
-                        size="sm"
-                        onClick={() => setShowMoreTags(!showMoreTags)}
-                        className="h-auto p-0 text-xs text-muted-foreground"
-                        data-oid="qs:3qag"
-                      >
-                        {showMoreTags ? "Less" : "More"}
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="flex flex-col lg:flex-row gap-8" data-oid="5x76vky">
+          {/* Desktop Left Sidebar - Filters */}
+          <div
+            className="hidden lg:block w-80 flex-shrink-0"
+            data-oid="7j-pg.r"
+          >
+            <FilterSection className="sticky top-8" data-oid="n8q9dw5" />
           </div>
 
           {/* Right Content - Prompt Cards */}
           <div className="flex-1" data-oid="siul4:y">
             <div className="mb-6" data-oid="0ixfgh7">
-              <h2
-                className="text-2xl font-semibold tracking-tight"
-                data-oid="0531u-l"
+              {/* Mobile Filter Button */}
+              <div
+                className="flex items-center justify-between mb-4 lg:hidden"
+                data-oid="pj.9rkc"
               >
-                {filteredPrompts.length} Prompts
-                {totalPages > 1 && (
-                  <span
-                    className="text-sm font-normal text-muted-foreground ml-2"
-                    data-oid="4sf0spt"
+                <h2
+                  className="text-2xl font-semibold tracking-tight"
+                  data-oid="0531u-l"
+                >
+                  {filteredPrompts.length} Prompts
+                </h2>
+                <Sheet
+                  open={isFilterOpen}
+                  onOpenChange={setIsFilterOpen}
+                  data-oid="g2sfb1v"
+                >
+                  <SheetTrigger asChild data-oid="cblx9qz">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="gap-2"
+                      data-oid="mftv0vr"
+                    >
+                      <Filter className="h-4 w-4" data-oid="pktgmqt" />
+                      Filters
+                      {selectedCategories.length +
+                        selectedLanguages.length +
+                        selectedTags.length >
+                        0 && (
+                        <Badge
+                          variant="secondary"
+                          className="ml-1 px-1.5 py-0.5 text-xs"
+                          data-oid="r8ole94"
+                        >
+                          {selectedCategories.length +
+                            selectedLanguages.length +
+                            selectedTags.length}
+                        </Badge>
+                      )}
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent
+                    side="left"
+                    className="w-80 overflow-y-auto"
+                    data-oid="bd.ll1v"
                   >
-                    (Page {currentPage} of {totalPages})
-                  </span>
-                )}
-              </h2>
+                    <SheetHeader data-oid="5.dduay">
+                      <SheetTitle data-oid="by:wj42">Filters</SheetTitle>
+                      <SheetDescription data-oid="305_:o4">
+                        Filter prompts by category, language, and tags
+                      </SheetDescription>
+                    </SheetHeader>
+                    <div className="mt-6" data-oid="6bya1s2">
+                      <FilterSection data-oid="htl8nmi" />
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              </div>
+
+              {/* Desktop Header */}
+              <div className="hidden lg:block" data-oid="jodn.am">
+                <h2
+                  className="text-2xl font-semibold tracking-tight"
+                  data-oid="1_bl.nj"
+                >
+                  {filteredPrompts.length} Prompts
+                  {totalPages > 1 && (
+                    <span
+                      className="text-sm font-normal text-muted-foreground ml-2"
+                      data-oid="4sf0spt"
+                    >
+                      (Page {currentPage} of {totalPages})
+                    </span>
+                  )}
+                </h2>
+              </div>
+
               <p className="text-muted-foreground" data-oid="qsjwnxt">
                 Explore our curated collection of Figma MCP prompts
                 {prompts.length !== filteredPrompts.length && (
@@ -459,6 +511,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                     className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
                     data-oid="yv:su-v"
                   />
+
                   <Input
                     placeholder="Search our prompts"
                     value={searchQuery}
@@ -546,7 +599,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
             </div>
 
             <div
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
               data-oid="v7jqb41"
             >
               {paginatedPrompts.map((prompt) => (
