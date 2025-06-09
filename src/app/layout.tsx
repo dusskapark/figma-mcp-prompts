@@ -34,15 +34,15 @@ export const metadata: Metadata = {
     title: "Figma MCP Magic - AI-Powered Design Automation",
     description: "Transform your Figma workflow with our curated collection of MCP prompts. Automate design tasks, streamline annotations, and enhance productivity with AI-powered Model Context Protocol.",
     siteName: "Figma MCP Magic",
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "Figma MCP Magic - AI-Powered Design Automation",
-        type: "image/svg+xml",
-      },
-    ],
+          images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Figma MCP Magic - AI-Powered Design Automation",
+          type: "image/png",
+        },
+      ],
   },
   
   // Twitter Card
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     creator: "@figma",
     title: "Figma MCP Magic - AI-Powered Design Automation",
     description: "Transform your Figma workflow with our curated collection of MCP prompts. Automate design tasks and enhance productivity.",
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
   },
   
   // Additional meta tags

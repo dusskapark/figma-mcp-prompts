@@ -142,15 +142,15 @@ export async function generateMetadata({
       title: `${prompt.title} - Figma MCP Prompt`,
       description: `${prompt.title} prompt for Figma MCP automation in ${category?.title || prompt.category} category. Transform your design workflow with AI-powered automation.`,
       siteName: "Figma MCP Magic",
-      images: [
-        {
-          url: "/og-image.svg",
-          width: 1200,
-          height: 630,
-          alt: `${prompt.title} - Figma MCP Prompt`,
-          type: "image/svg+xml",
-        },
-      ],
+              images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: `${prompt.title} - Figma MCP Prompt`,
+            type: "image/png",
+          },
+        ],
       tags: prompt.tags,
     },
     
@@ -161,7 +161,7 @@ export async function generateMetadata({
       creator: "@figma",
       title: `${prompt.title} - Figma MCP`,
       description: `${prompt.title} prompt for Figma MCP automation. Category: ${category?.title || prompt.category}`,
-      images: ["/og-image.svg"],
+      images: ["/og-image.png"],
     },
     
     // Additional meta
