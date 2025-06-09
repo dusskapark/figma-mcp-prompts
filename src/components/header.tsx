@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Github, ExternalLink, Sparkles, Plus } from "lucide-react";
+import { Github, ExternalLink, Plus } from "lucide-react";
 
 import {
   NavigationMenu,
@@ -14,6 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
+import McpLogo from "@/components/mcp-logo"
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const resources = [
@@ -40,8 +41,8 @@ export default function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <div className="p-1.5 rounded-md bg-gradient-to-br from-blue-500 to-purple-600">
-            <Sparkles className="h-5 w-5 text-white" />
+          <div className="p-1.5 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+            <McpLogo className="h-5 w-5" />
           </div>
           <span className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             <span className="hidden sm:inline">Figma </span>
