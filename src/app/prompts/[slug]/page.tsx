@@ -1,6 +1,7 @@
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../../keystatic.config";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -98,6 +99,75 @@ async function getPrompt(slug: string): Promise<Prompt | null> {
     console.error("Error loading prompt:", slug, error);
     return null;
   }
+}
+
+// Generate dynamic metadata for each prompt
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const prompt = await getPrompt(slug);
+
+  if (!prompt) {
+    return {
+      title: "Prompt Not Found",
+      description: "The requested prompt could not be found.",
+    };
+  }
+
+  const category = categories.find((c) => c.id === prompt.category);
+  const { prompt: promptContent } = parseContent(prompt.content);
+  const preview = promptContent.substring(0, 150) + (promptContent.length > 150 ? "..." : "");
+
+  return {
+    title: `${prompt.title} - Figma MCP Prompt`,
+    description: `${prompt.title} prompt for Figma MCP automation. Category: ${category?.title || prompt.category}. ${preview}`,
+    keywords: [
+      "Figma MCP",
+      "Model Context Protocol", 
+      prompt.title,
+      prompt.category,
+      ...prompt.tags,
+      "design automation",
+      "Figma prompts"
+    ],
+    
+    // Open Graph
+    openGraph: {
+      type: "article",
+      locale: prompt.language === "Korean" ? "ko_KR" : "en_US",
+      url: `https://figma-mcp-prompts.vercel.app/prompts/${slug}`,
+      title: `${prompt.title} - Figma MCP Prompt`,
+      description: `${prompt.title} prompt for Figma MCP automation in ${category?.title || prompt.category} category. Transform your design workflow with AI-powered automation.`,
+      siteName: "Figma MCP Magic",
+      images: [
+        {
+          url: "/og-image.svg",
+          width: 1200,
+          height: 630,
+          alt: `${prompt.title} - Figma MCP Prompt`,
+          type: "image/svg+xml",
+        },
+      ],
+      tags: prompt.tags,
+    },
+    
+    // Twitter Card
+    twitter: {
+      card: "summary_large_image",
+      site: "@figma",
+      creator: "@figma",
+      title: `${prompt.title} - Figma MCP`,
+      description: `${prompt.title} prompt for Figma MCP automation. Category: ${category?.title || prompt.category}`,
+      images: ["/og-image.svg"],
+    },
+    
+    // Additional meta
+    category: "Design Tools",
+    classification: `${category?.title || prompt.category} Automation`,
+  };
 }
 
 export default async function PromptDetailPage({
