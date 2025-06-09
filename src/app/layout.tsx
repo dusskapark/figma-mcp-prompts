@@ -1,40 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "Figma MCP Magic - Prompt Collection",
-  description: "A curated collection of powerful prompts for Figma MCP (Model Context Protocol). Transform your design workflow with AI-powered automation.",
+  description:
+    "A curated collection of powerful prompts for Figma MCP (Model Context Protocol). Transform your design workflow with AI-powered automation.",
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <ThemeProvider>
-          <Header />
+    <html lang="en" suppressHydrationWarning data-oid="z:4om36">
+      <body className="antialiased" suppressHydrationWarning data-oid="try_rp8">
+        <ThemeProvider data-oid="2bhc.-s">
+          <Header data-oid="c-8qbrv" />
           {children}
-          <Toaster />
+          <Toaster data-oid="sj93osh" />
         </ThemeProvider>
       </body>
     </html>

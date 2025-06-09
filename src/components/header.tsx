@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import * as React from "react";
 import Link from "next/link";
@@ -36,30 +36,52 @@ const resources = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <header
+      className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      data-oid="-o8mc6b"
+    >
+      <div
+        className="container mx-auto px-4 h-16 flex items-center justify-between"
+        data-oid="1_uoapk"
+      >
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="p-1.5 rounded-md bg-gradient-to-br from-blue-500 to-purple-600">
-            <Sparkles className="h-5 w-5 text-white" />
+        <Link
+          href="/"
+          className="flex items-center space-x-2"
+          data-oid=".9..n9s"
+        >
+          <div
+            className="p-1.5 rounded-md bg-gradient-to-br from-blue-500 to-purple-600"
+            data-oid="k-0p4_e"
+          >
+            <Sparkles className="h-5 w-5 text-white" data-oid="di6prv9" />
           </div>
-          <span className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span
+            className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            data-oid="ngxxsxr"
+          >
             Figma MCP Magic
           </span>
         </Link>
 
         {/* Navigation */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-sm">Resources</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px]">
+        <NavigationMenu className="hidden md:flex" data-oid="3t5vaqd">
+          <NavigationMenuList data-oid=":kx5rnj">
+            <NavigationMenuItem data-oid="p0lpl1:">
+              <NavigationMenuTrigger className="text-sm" data-oid=":sl-:n_">
+                Resources
+              </NavigationMenuTrigger>
+              <NavigationMenuContent data-oid="k0ork81">
+                <ul
+                  className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px]"
+                  data-oid="tp.irk."
+                >
                   {resources.map((resource) => (
                     <ListItem
                       key={resource.title}
                       title={resource.title}
                       href={resource.href}
+                      data-oid="iqsi2es"
                     >
                       {resource.description}
                     </ListItem>
@@ -67,15 +89,22 @@ export default function Header() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <a 
-                  href="#prompts" 
+            <NavigationMenuItem data-oid="p_f2slt">
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+                data-oid="pk.p0yu"
+              >
+                <a
+                  href="#prompts"
                   className="text-sm"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById('prompts')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("prompts")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
+                  data-oid="8_r27n6"
                 >
                   Prompts
                 </a>
@@ -85,24 +114,38 @@ export default function Header() {
         </NavigationMenu>
 
         {/* Right Side Actions */}
-        <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex">
+        <div className="flex items-center space-x-2" data-oid="ll.s4jp">
+          <Button
+            variant="ghost"
+            size="sm"
+            asChild
+            className="hidden sm:inline-flex"
+            data-oid=":q2wq.g"
+          >
             <a
               href="https://github.com/FigmaAI/figma-mcp-prompts"
               target="_blank"
               rel="noopener noreferrer"
+              data-oid=":y:zk5e"
             >
-              <Github className="h-4 w-4 mr-2" />
+              <Github className="h-4 w-4 mr-2" data-oid="2:qie4t" />
               GitHub
             </a>
           </Button>
-          <ThemeToggle />
-          <Button 
-            size="sm" 
-            onClick={() => window.open('https://github.com/FigmaAI/figma-mcp-prompts/blob/main/CONTRIBUTING.md', '_blank', 'noopener,noreferrer')}
+          <ThemeToggle data-oid="in6:63z" />
+          <Button
+            size="sm"
+            onClick={() =>
+              window.open(
+                "https://github.com/FigmaAI/figma-mcp-prompts/blob/main/CONTRIBUTING.md",
+                "_blank",
+                "noopener,noreferrer",
+              )
+            }
             className="flex items-center gap-2"
+            data-oid="hhjrt:7"
           >
-            <Plus className="h-4 w-4" />
+            <Plus className="h-4 w-4" data-oid="6739yjv" />
             Add Prompt
           </Button>
         </div>
@@ -118,23 +161,33 @@ function ListItem({
   ...props
 }: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
   return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <a 
+    <li {...props} data-oid="9ic6bgw">
+      <NavigationMenuLink asChild data-oid="zdj:4-.">
+        <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+          data-oid="qrkm8.z"
         >
-          <div className="text-sm font-medium leading-none flex items-center">
+          <div
+            className="text-sm font-medium leading-none flex items-center"
+            data-oid="jq_jnk_"
+          >
             {title}
-            <ExternalLink className="h-3 w-3 ml-2 opacity-50 group-hover:opacity-100 transition-opacity" />
+            <ExternalLink
+              className="h-3 w-3 ml-2 opacity-50 group-hover:opacity-100 transition-opacity"
+              data-oid="-v8de3."
+            />
           </div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <p
+            className="line-clamp-2 text-sm leading-snug text-muted-foreground"
+            data-oid="j6s7ag6"
+          >
             {children}
           </p>
         </a>
       </NavigationMenuLink>
     </li>
   );
-} 
+}
