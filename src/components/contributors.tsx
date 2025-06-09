@@ -36,7 +36,7 @@ export default function Contributors() {
     const fetchContributors = async () => {
       try {
         const response = await fetch(
-          "https://api.github.com/repos/FigmaAI/figma-mcp-prompts/contributors",
+          "https://api.github.com/repos/dusskapark/figma-mcp-prompts/contributors",
           {
             headers: {
               Accept: "application/vnd.github.v3+json",
@@ -157,6 +157,7 @@ export default function Contributors() {
                       alt={contributor.name || contributor.login}
                       data-oid="q600j8s"
                     />
+
                     <AvatarFallback data-oid=".rt5q7x">
                       {(contributor.name || contributor.login)
                         .substring(0, 2)
@@ -182,7 +183,7 @@ export default function Contributors() {
                       data-oid="5yrh4nw"
                     >
                       {/* <Badge variant="secondary" className="text-xs">
-                       {contributor.contributions} commits
+                      {contributor.contributions} commits
                       </Badge> */}
                       {contributor.name &&
                         contributor.name !== contributor.login && (
@@ -262,7 +263,7 @@ export default function Contributors() {
 
         <div className="text-center mt-8" data-oid="-7-tn35">
           <a
-            href="https://github.com/FigmaAI/figma-mcp-prompts/graphs/contributors"
+            href="https://github.com/dusskapark/figma-mcp-prompts/graphs/contributors"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"

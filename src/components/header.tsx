@@ -123,7 +123,7 @@ export default function Header() {
             data-oid=":q2wq.g"
           >
             <a
-              href="https://github.com/FigmaAI/figma-mcp-prompts"
+              href="https://github.com/dusskapark/figma-mcp-prompts"
               target="_blank"
               rel="noopener noreferrer"
               data-oid=":y:zk5e"
@@ -137,7 +137,7 @@ export default function Header() {
             size="sm"
             onClick={() =>
               window.open(
-                "https://github.com/FigmaAI/figma-mcp-prompts/blob/main/CONTRIBUTING.md",
+                "https://github.com/dusskapark/figma-mcp-prompts/blob/main/CONTRIBUTING.md",
                 "_blank",
                 "noopener,noreferrer",
               )
