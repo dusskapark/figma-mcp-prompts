@@ -22,8 +22,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## Resources
 
-- [English Playground](https://www.figma.com/design/Ou0fh46uSOmaRbkdqWo57T/Design-Automation-with-Figma-MCP)
-- [Korean Playground](https://www.figma.com/design/58mNjcrt16BdyaoeIAaqRE/작업-시간을-단축해주는-MCP-디자인-오토메이션)
+- [English Playground](https://www.figma.com/community/file/1513760524697897204)
+- [Korean Playground](https://www.figma.com/community/file/1513759391089024242)
 - [Tutorial Videos](https://youtube.com/playlist?list=PLLQlZaiiGlHOdfqGoErLQaMaDPZdHARVV)
 
 ## Tech Stack

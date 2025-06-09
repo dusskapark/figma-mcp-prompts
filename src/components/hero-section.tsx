@@ -86,101 +86,73 @@ export default function HeroSection({ stats = [] }: HeroSectionProps) {
   };
 
   return (
-    <section
-      className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20 pt-14"
-      data-oid="vaw22iw"
-    >
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20 pt-14">
       {/* Background Pattern */}
-      <div
-        className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"
-        data-oid="25j4w4l"
-      ></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
 
-      <div
-        className="container mx-auto px-4 py-8 lg:py-12 relative z-10"
-        data-oid="4u0ndhl"
-      >
-        <div
-          className="max-w-3xl mx-auto text-center space-y-6"
-          data-oid="2qhdkj2"
-        >
+      <div className="container mx-auto px-4 py-8 lg:py-12 relative z-10">
+        <div className="max-w-3xl mx-auto text-center space-y-6">
           {/* Content */}
-          <div className="space-y-3" data-oid="p3xprx9">
-            <Badge
-              variant="secondary"
-              className="text-sm font-medium"
-              data-oid="c0ft698"
-            >
-              <Sparkles className="h-4 w-4 mr-2" data-oid="on5ex6u" />
+          <div className="space-y-3">
+            <Badge variant="secondary" className="text-sm font-medium">
+              <Sparkles className="h-4 w-4 mr-2" />
               Figma MCP Integration
             </Badge>
 
-            <h1
-              className="text-3xl lg:text-5xl font-bold tracking-tight"
-              data-oid=".cvaof7"
-            >
+            <h1 className="text-3xl lg:text-5xl font-bold tracking-tight">
               Automate Your
               <span
                 ref={typeItRef}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block min-h-[1.2em]"
-                data-oid="7zzi2v9"
               >
                 {" "}
               </span>
             </h1>
 
             {/* <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                Discover powerful MCP prompts that automate your design process. 
-                Streamline your workflow with AI-powered automation.
-               </p> */}
+                 Discover powerful MCP prompts that automate your design process. 
+                 Streamline your workflow with AI-powered automation.
+                </p> */}
           </div>
 
-          <div
-            className="flex flex-col sm:flex-row gap-3 justify-center items-center relative z-20"
-            data-oid="s68na04"
-          >
-            <DropdownMenu data-oid="2i0vmjw">
-              <DropdownMenuTrigger asChild data-oid="5:nfzf6">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center relative z-20">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg relative z-20"
                   type="button"
-                  data-oid="69-2kru"
                 >
-                  <Download className="h-5 w-5 mr-2" data-oid="8aqikhf" />
+                  <Download className="h-5 w-5 mr-2" />
                   Try Playground
-                  <ChevronDown className="h-4 w-4 ml-2" data-oid="zch0nzp" />
+                  <ChevronDown className="h-4 w-4 ml-2" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 z-50" data-oid="7yu51yt">
-                <DropdownMenuLabel data-oid="u8t_qe_">
-                  Choose Language
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator data-oid="7k5nxav" />
+              <DropdownMenuContent className="w-56 z-50">
+                <DropdownMenuLabel>Choose Language</DropdownMenuLabel>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem
                   onSelect={(e) => {
                     e.preventDefault();
                     handlePlaygroundLink(
-                      "https://www.figma.com/design/Ou0fh46uSOmaRbkdqWo57T/Design-Automation-with-Figma-MCP?m=auto&t=0LVAyGuJEf2451x8-6",
+                      "https://www.figma.com/community/file/1513760524697897204",
                     );
                   }}
                   className="cursor-pointer focus:bg-accent focus:text-accent-foreground"
-                  data-oid="c1l_20q"
                 >
-                  <ExternalLink className="h-4 w-4 mr-2" data-oid="3pakj.o" />
+                  <ExternalLink className="h-4 w-4 mr-2" />
                   English Playground
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onSelect={(e) => {
                     e.preventDefault();
                     handlePlaygroundLink(
-                      "https://www.figma.com/design/58mNjcrt16BdyaoeIAaqRE/%EC%9E%91%EC%97%85-%EC%8B%9C%EA%B0%84%EC%9D%84-%EB%8B%A8%EC%B6%95%ED%95%B4%EC%A3%BC%EB%8A%94--MCP-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%98%A4%ED%86%A0%EB%A9%94%EC%9D%B4%EC%85%98-?m=auto&t=0LVAyGuJEf2451x8-6",
+                      "https://www.figma.com/community/file/1513759391089024242",
                     );
                   }}
                   className="cursor-pointer focus:bg-accent focus:text-accent-foreground"
-                  data-oid="e4vdam2"
                 >
-                  <ExternalLink className="h-4 w-4 mr-2" data-oid="ygqk75e" />
+                  <ExternalLink className="h-4 w-4 mr-2" />
                   한국어 플레이그라운드
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -191,27 +163,20 @@ export default function HeroSection({ stats = [] }: HeroSectionProps) {
               variant="secondary"
               onClick={handleTutorialVideo}
               className="relative z-20"
-              data-oid="0pkihxy"
             >
-              <ExternalLink className="h-5 w-5 mr-2" data-oid="r3tcud-" />
+              <ExternalLink className="h-5 w-5 mr-2" />
               Tutorial Videos
             </Button>
           </div>
 
           {/* Stats */}
-          <div className="flex justify-center gap-6 pt-2" data-oid="ls4qk47">
+          <div className="flex justify-center gap-6 pt-2">
             {displayStats.map((stat, index) => (
-              <div key={index} className="text-center" data-oid="xmyx5nc">
-                <div
-                  className="text-xl font-bold text-primary"
-                  data-oid="jr04-if"
-                >
+              <div key={index} className="text-center">
+                <div className="text-xl font-bold text-primary">
                   {stat.value}
                 </div>
-                <div
-                  className="text-xs text-muted-foreground"
-                  data-oid="qtdzthu"
-                >
+                <div className="text-xs text-muted-foreground">
                   {stat.label}
                 </div>
               </div>
