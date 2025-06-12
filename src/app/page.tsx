@@ -53,6 +53,7 @@ async function getPrompts(): Promise<Prompt[]> {
           "handoff",
           "collaboration",
         ],
+
         language: "English",
         content:
           "# Prompt\n\nCreate comprehensive design annotations for the selected elements, including spacing, typography, colors, and interaction notes for developer handoff.\n\n# How to Use\n\n1. Select the elements you want to annotate\n2. Run this prompt\n3. Review and customize the generated annotations",
@@ -68,6 +69,7 @@ async function getPrompts(): Promise<Prompt[]> {
           "design system",
           "efficiency",
         ],
+
         language: "English",
         content:
           "# Prompt\n\nEfficiently swap and update multiple component instances while preserving overrides and maintaining design system consistency.\n\n# How to Use\n\n1. Select multiple component instances\n2. Run this prompt\n3. Choose the target component to swap to",
@@ -83,6 +85,7 @@ async function getPrompts(): Promise<Prompt[]> {
           "documentation",
           "user flows",
         ],
+
         language: "English",
         content:
           "# Prompt\n\nTransform your prototype connections into clean FigJam connector diagrams for better documentation and stakeholder communication.\n\n# How to Use\n\n1. Create your prototype flows in Figma\n2. Run this prompt on the selected frames\n3. Export or copy the generated connector diagram to FigJam",
@@ -194,56 +197,56 @@ export default async function HomePage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Figma MCP Magic",
-    "description": "A curated collection of powerful prompts for Figma MCP (Model Context Protocol). Transform your design workflow with AI-powered automation.",
-    "url": "https://figma-mcp-prompts.vercel.app",
-    "sameAs": [
-      "https://github.com/figma",
-      "https://twitter.com/figma"
-    ],
-    "potentialAction": {
+    name: "Figma MCP Magic",
+    description:
+      "A curated collection of powerful prompts for Figma MCP (Model Context Protocol). Transform your design workflow with AI-powered automation.",
+    url: "https://figma-mcp-prompts.vercel.app",
+    sameAs: ["https://github.com/figma", "https://twitter.com/figma"],
+
+    potentialAction: {
       "@type": "SearchAction",
-      "target": "https://figma-mcp-prompts.vercel.app/?search={search_term_string}",
-      "query-input": "required name=search_term_string"
+      target:
+        "https://figma-mcp-prompts.vercel.app/?search={search_term_string}",
+      "query-input": "required name=search_term_string",
     },
-    "mainEntity": {
+    mainEntity: {
       "@type": "ItemList",
-      "name": "Figma MCP Prompts",
-      "description": "Collection of AI-powered automation prompts for Figma",
-      "numberOfItems": "24+",
-      "itemListElement": [
+      name: "Figma MCP Prompts",
+      description: "Collection of AI-powered automation prompts for Figma",
+      numberOfItems: "24+",
+      itemListElement: [
         {
           "@type": "SoftwareApplication",
-          "name": "Auto Populate Prompts",
-          "applicationCategory": "Design Tool",
-          "description": "Automate content population in Figma designs"
-        },
-        {
-          "@type": "SoftwareApplication", 
-          "name": "Annotation Prompts",
-          "applicationCategory": "Design Tool",
-          "description": "Streamline design annotations and documentation"
+          name: "Auto Populate Prompts",
+          applicationCategory: "Design Tool",
+          description: "Automate content population in Figma designs",
         },
         {
           "@type": "SoftwareApplication",
-          "name": "Override Prompts", 
-          "applicationCategory": "Design Tool",
-          "description": "Manage component overrides efficiently"
+          name: "Annotation Prompts",
+          applicationCategory: "Design Tool",
+          description: "Streamline design annotations and documentation",
         },
         {
           "@type": "SoftwareApplication",
-          "name": "Connector Prompts",
-          "applicationCategory": "Design Tool", 
-          "description": "Automate connector and flow diagrams"
+          name: "Override Prompts",
+          applicationCategory: "Design Tool",
+          description: "Manage component overrides efficiently",
         },
         {
           "@type": "SoftwareApplication",
-          "name": "Vibe Design Prompts",
-          "applicationCategory": "Design Tool",
-          "description": "Enhance design aesthetics and visual appeal"
-        }
-      ]
-    }
+          name: "Connector Prompts",
+          applicationCategory: "Design Tool",
+          description: "Automate connector and flow diagrams",
+        },
+        {
+          "@type": "SoftwareApplication",
+          name: "Vibe Design Prompts",
+          applicationCategory: "Design Tool",
+          description: "Enhance design aesthetics and visual appeal",
+        },
+      ],
+    },
   };
 
   const prompts = await getPrompts();
@@ -253,8 +256,9 @@ export default async function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        data-oid="t3jekei"
       />
-      
+
       <Suspense
         fallback={<div data-oid="or4x_0w">Loading...</div>}
         data-oid="up0kbf9"

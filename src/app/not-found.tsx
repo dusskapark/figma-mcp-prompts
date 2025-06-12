@@ -64,19 +64,19 @@ export default function NotFound() {
             </div>
 
             {/* <div className="pt-4 border-t" data-oid="fqhnzdm">
-                <p className="text-sm text-muted-foreground" data-oid="d2a:j:a">
-                  Looking for a specific prompt? Try using the search function on
-                  our{" "}
-                  <Link
-                    href="/"
-                    className="text-primary hover:underline"
-                    data-oid="w6h1tf0"
-                  >
-                    main page
-                  </Link>
-                  .
-                </p>
-               </div> */}
+                 <p className="text-sm text-muted-foreground" data-oid="d2a:j:a">
+                   Looking for a specific prompt? Try using the search function on
+                   our{" "}
+                   <Link
+                     href="/"
+                     className="text-primary hover:underline"
+                     data-oid="w6h1tf0"
+                   >
+                     main page
+                   </Link>
+                   .
+                 </p>
+                </div> */}
           </CardContent>
         </Card>
       </div>
