@@ -190,69 +190,69 @@ export default async function PromptDetailPage({
   );
 
   return (
-    <div className="min-h-screen bg-background" data-oid="noe5sr3">
+    <div className="min-h-screen bg-background" data-oid="baad05k">
       {/* Header */}
       <header
         className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-        data-oid="1xqp7wo"
+        data-oid="c:t88_5"
       >
-        <div className="container mx-auto px-4 py-6" data-oid="ysb3v9w">
-          <div className="flex items-center gap-4" data-oid="6f9.8bt">
-            <Button variant="ghost" size="sm" asChild data-oid="_lkypaw">
+        <div className="container mx-auto px-4 py-6" data-oid="d715vgv">
+          <div className="flex items-center gap-4" data-oid="l_:fgi.">
+            <Button variant="ghost" size="sm" asChild data-oid="xdv2f_g">
               <Link
                 href="/"
                 className="flex items-center gap-2"
-                data-oid="1ga_h7a"
+                data-oid="4ag_uey"
               >
-                <ArrowLeft className="h-4 w-4" data-oid="inkdh66" />
+                <ArrowLeft className="h-4 w-4" data-oid="263027q" />
                 Back
               </Link>
             </Button>
             <Separator
               orientation="vertical"
               className="h-6"
-              data-oid="9vwhdpf"
+              data-oid="a8zy3d_"
             />
 
-            <div className="space-y-1" data-oid=":j965vv">
+            <div className="space-y-1" data-oid="j57qj61">
               <h1
                 className="text-2xl font-bold tracking-tight"
-                data-oid="jxjyff4"
+                data-oid="rbm3h6-"
               >
                 {prompt.title}
               </h1>
               <div
                 className="flex items-center gap-2 text-sm text-muted-foreground"
-                data-oid="pqqwtrt"
+                data-oid="3-ahhal"
               >
                 {category?.icon && (
-                  <category.icon className="h-4 w-4" data-oid="-i:2tcg" />
+                  <category.icon className="h-4 w-4" data-oid="fww79fy" />
                 )}
-                <span data-oid="q5l6lh0">{category?.title}</span>
+                <span data-oid="3d2zv_7">{category?.title}</span>
                 <Separator
                   orientation="vertical"
                   className="h-4"
-                  data-oid="uespvc0"
+                  data-oid="3l_lvqe"
                 />
 
-                <Globe className="h-4 w-4" data-oid="grdioo:" />
-                <span data-oid="0lc8uv.">{prompt.language}</span>
+                <Globe className="h-4 w-4" data-oid="c7kvohp" />
+                <span data-oid="jf2_vub">{prompt.language}</span>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8" data-oid="4.:23e9">
-        <div className="max-w-4xl mx-auto space-y-8" data-oid="-b_lvyw">
+      <div className="container mx-auto px-4 py-8" data-oid="tbvsdmc">
+        <div className="max-w-4xl mx-auto space-y-8" data-oid="ae1m6-a">
           {/* Tags */}
-          <div className="flex flex-wrap gap-2" data-oid="cdrwfk_">
+          <div className="flex flex-wrap gap-2" data-oid="e0ly:s2">
             {prompt.tags.map((tag) => (
               <Badge
                 key={tag}
                 variant="secondary"
                 className="text-xs"
-                data-oid="l3v1.1_"
+                data-oid="_9.7gox"
               >
                 {tag}
               </Badge>
@@ -260,28 +260,28 @@ export default async function PromptDetailPage({
           </div>
 
           {/* Content */}
-          <div className="space-y-6" data-oid="_jdg0af">
+          <div className="space-y-6" data-oid="cj_fq:m">
             {/* Prompt Section */}
-            <Card data-oid="tlw3k6f">
-              <CardHeader data-oid="cvj_wq-">
+            <Card data-oid="rs1:p.g">
+              <CardHeader data-oid="annw2ju">
                 <div
                   className="flex items-center justify-between"
-                  data-oid="g1_d9zx"
+                  data-oid="c25b8r9"
                 >
-                  <CardTitle className="text-lg" data-oid="l286c4h">
+                  <CardTitle className="text-lg" data-oid="_e:6eav">
                     Prompt
                   </CardTitle>
-                  <CopyButton text={promptContent} data-oid="fzjyf0e" />
+                  <CopyButton text={promptContent} data-oid="xu:48_7" />
                 </div>
               </CardHeader>
-              <CardContent data-oid="3t4ywrb">
+              <CardContent data-oid="ptemx25">
                 <div
                   className="prose prose-sm dark:prose-invert max-w-none"
-                  data-oid="lm.kwms"
+                  data-oid="aufcboo"
                 >
                   <pre
                     className="whitespace-pre-wrap bg-muted p-4 rounded-md text-sm"
-                    data-oid="vpqcfp6"
+                    data-oid="9c87vz_"
                   >
                     {promptContent}
                   </pre>
@@ -291,16 +291,16 @@ export default async function PromptDetailPage({
 
             {/* How to Use Section */}
             {howToContent && (
-              <Card data-oid="fxrby8f">
-                <CardHeader data-oid="qbfavmd">
-                  <CardTitle className="text-lg" data-oid="r0hx84:">
+              <Card data-oid="o26xbvv">
+                <CardHeader data-oid="fzjrruf">
+                  <CardTitle className="text-lg" data-oid="1l48h.g">
                     How to Use
                   </CardTitle>
                 </CardHeader>
-                <CardContent data-oid="2c8eyyb">
+                <CardContent data-oid="vmhxenf">
                   <div
                     className="prose prose-sm dark:prose-invert max-w-none prose-ol:list-decimal prose-ul:list-disc prose-ol:pl-6 prose-ul:pl-6 prose-li:my-1"
-                    data-oid="t0ebhml"
+                    data-oid="y4h5zxy"
                   >
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
@@ -309,7 +309,7 @@ export default async function PromptDetailPage({
                         ol: ({ children }) => (
                           <ol
                             className="list-decimal list-inside space-y-2 my-4"
-                            data-oid="jp9xe_q"
+                            data-oid=":5qx1d4"
                           >
                             {children}
                           </ol>
@@ -318,14 +318,14 @@ export default async function PromptDetailPage({
                         ul: ({ children }) => (
                           <ul
                             className="list-disc list-inside space-y-2 my-4"
-                            data-oid="v8z2nqm"
+                            data-oid="_og4pwd"
                           >
                             {children}
                           </ul>
                         ),
 
                         li: ({ children }) => (
-                          <li className="leading-relaxed" data-oid="1g5f:gq">
+                          <li className="leading-relaxed" data-oid="te5muza">
                             {children}
                           </li>
                         ),
@@ -339,32 +339,32 @@ export default async function PromptDetailPage({
                                 size="sm"
                                 asChild
                                 className="my-2"
-                                data-oid="wsfow9b"
+                                data-oid="k_ukh:_"
                               >
                                 <a
                                   href={href}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center gap-2"
-                                  data-oid="ll0mz7r"
+                                  data-oid="b.b4mr0"
                                 >
                                   <svg
                                     width="16"
                                     height="16"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    data-oid="37h.8uh"
+                                    data-oid="zdrrku9"
                                   >
                                     <path
                                       d="M15.332 8.668a3.333 3.333 0 0 0 0-6.663H8.668a3.333 3.333 0 0 0 0 6.663 3.333 3.333 0 0 0 0 6.665 3.333 3.333 0 0 0 0 6.664A3.334 3.334 0 0 0 12.001 18v-4.665h3.331a3.333 3.333 0 0 0 0-6.667Z"
-                                      data-oid="8cdvqi9"
+                                      data-oid="xi_k._4"
                                     />
 
                                     <circle
                                       cx="15.332"
                                       cy="12"
                                       r="3.332"
-                                      data-oid="0knm4tb"
+                                      data-oid="ax43x49"
                                     />
                                   </svg>
                                   {children}
@@ -380,7 +380,7 @@ export default async function PromptDetailPage({
                               className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline underline-offset-2 hover:underline-offset-4 transition-all"
                               target="_blank"
                               rel="noopener noreferrer"
-                              data-oid="i4br7pv"
+                              data-oid="lha_5cl"
                             >
                               {children}
                             </a>
@@ -400,7 +400,7 @@ export default async function PromptDetailPage({
 
                           if (hasOnlyImage) {
                             return (
-                              <div className="my-4" data-oid="vrkasjs">
+                              <div className="my-4" data-oid="aqw401y">
                                 {children}
                               </div>
                             );
@@ -409,7 +409,7 @@ export default async function PromptDetailPage({
                           return (
                             <p
                               className="my-3 leading-relaxed"
-                              data-oid="5_.xano"
+                              data-oid="y2ltqnx"
                             >
                               {children}
                             </p>
@@ -418,14 +418,14 @@ export default async function PromptDetailPage({
                         strong: ({ children }) => (
                           <strong
                             className="font-semibold text-foreground"
-                            data-oid="kqcdr95"
+                            data-oid="1tzh_r3"
                           >
                             {children}
                           </strong>
                         ),
 
                         em: ({ children }) => (
-                          <em className="italic" data-oid="ulfx2ln">
+                          <em className="italic" data-oid="wmqvkou">
                             {children}
                           </em>
                         ),
@@ -433,7 +433,7 @@ export default async function PromptDetailPage({
                         h1: ({ children }) => (
                           <h1
                             className="text-lg font-semibold text-foreground mt-6 mb-3"
-                            data-oid=":rig7ys"
+                            data-oid="t.wemk6"
                           >
                             {children}
                           </h1>
@@ -442,7 +442,7 @@ export default async function PromptDetailPage({
                         h2: ({ children }) => (
                           <h2
                             className="text-base font-semibold text-foreground mt-5 mb-2"
-                            data-oid="sgj4_4-"
+                            data-oid="0m4ci4n"
                           >
                             {children}
                           </h2>
@@ -451,7 +451,7 @@ export default async function PromptDetailPage({
                         h3: ({ children }) => (
                           <h3
                             className="text-sm font-semibold text-foreground mt-4 mb-2"
-                            data-oid="-ej4bhw"
+                            data-oid="l3ac6u1"
                           >
                             {children}
                           </h3>
@@ -460,11 +460,11 @@ export default async function PromptDetailPage({
                         table: ({ children }) => (
                           <div
                             className="my-4 overflow-x-auto"
-                            data-oid="dz19gh7"
+                            data-oid="9robieb"
                           >
                             <table
                               className="min-w-full border-collapse border border-border rounded-lg"
-                              data-oid="2edvxh."
+                              data-oid="ilexeq4"
                             >
                               {children}
                             </table>
@@ -472,19 +472,19 @@ export default async function PromptDetailPage({
                         ),
 
                         thead: ({ children }) => (
-                          <thead className="bg-muted" data-oid="rh_gf8w">
+                          <thead className="bg-muted" data-oid="lq-s9jt">
                             {children}
                           </thead>
                         ),
 
                         tbody: ({ children }) => (
-                          <tbody data-oid="l_hg:yq">{children}</tbody>
+                          <tbody data-oid="o8quqv7">{children}</tbody>
                         ),
 
                         tr: ({ children }) => (
                           <tr
                             className="border-b border-border"
-                            data-oid=":t:8isk"
+                            data-oid="-3m_k1v"
                           >
                             {children}
                           </tr>
@@ -493,7 +493,7 @@ export default async function PromptDetailPage({
                         th: ({ children }) => (
                           <th
                             className="border border-border px-4 py-2 text-left font-semibold text-foreground"
-                            data-oid="b3sr:-z"
+                            data-oid="u:c.sz7"
                           >
                             {children}
                           </th>
@@ -502,7 +502,7 @@ export default async function PromptDetailPage({
                         td: ({ children }) => (
                           <td
                             className="border border-border px-4 py-2 text-muted-foreground"
-                            data-oid="vqzei-6"
+                            data-oid="vk:w5n."
                           >
                             {children}
                           </td>
@@ -527,12 +527,12 @@ export default async function PromptDetailPage({
                               height={400}
                               className="w-full h-auto object-cover rounded-lg border my-4"
                               priority={false}
-                              data-oid="lf.kpx:"
+                              data-oid="tu4sow5"
                             />
                           );
                         },
                       }}
-                      data-oid="uzehw47"
+                      data-oid="3arvl8-"
                     >
                       {howToContent}
                     </ReactMarkdown>
@@ -544,20 +544,20 @@ export default async function PromptDetailPage({
             {/* Edit on GitHub 버튼 */}
             <div
               className="mt-8 pt-6 border-t border-border"
-              data-oid="github-edit"
+              data-oid="53vr6a1"
             >
               <Button
                 variant="outline"
                 size="sm"
                 asChild
                 className="inline-flex items-center gap-2"
-                data-oid="github-edit-button"
+                data-oid="xko649q"
               >
                 <a
                   href={`https://github.com/dusskapark/figma-mcp-prompts/edit/main/content/prompts/${slug}.mdx`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-oid="2teeazo"
+                  data-oid="g:9bbh-"
                 >
                   <svg
                     width="16"
@@ -565,11 +565,11 @@ export default async function PromptDetailPage({
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     className="mr-1"
-                    data-oid="m7q-tp3"
+                    data-oid="5a79y8s"
                   >
                     <path
                       d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                      data-oid="_-v5.x5"
+                      data-oid="nf1953z"
                     />
                   </svg>
                   Edit on GitHub

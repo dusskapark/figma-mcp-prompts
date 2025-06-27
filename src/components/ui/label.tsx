@@ -17,7 +17,6 @@ function Label({
         className,
       )}
       {...props}
-      data-oid="4cago_1"
     />
   );
 }

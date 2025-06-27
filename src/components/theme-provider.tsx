@@ -14,7 +14,6 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       defaultTheme="dark"
       enableSystem
       disableTransitionOnChange
-      data-oid="gyl98g."
     >
       {children}
     </NextThemesProvider>

@@ -39,7 +39,6 @@ function Badge({
       data-slot="badge"
       className={cn(badgeVariants({ variant }), className)}
       {...props}
-      data-oid="94c:d5w"
     />
   );
 }
