@@ -1,10 +1,10 @@
 export default function KeystaticPage() {
   return (
-    <div className="p-8" data-oid="l8h:of2">
-      <h1 className="text-2xl font-bold mb-4" data-oid=":c06:3p">
+    <div className="p-8" data-oid="ydj_8sw">
+      <h1 className="text-2xl font-bold mb-4" data-oid="7pb0ydy">
         Keystatic Admin
       </h1>
-      <p data-oid="i310v6z">Keystatic integration coming soon...</p>
+      <p data-oid="seifdjw">Keystatic integration coming soon...</p>
     </div>
   );
 }

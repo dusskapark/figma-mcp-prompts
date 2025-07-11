@@ -213,18 +213,18 @@ export default function PromptClient({ prompts }: PromptClientProps) {
 
   // Filter Section Component
   const FilterSection = ({ className = "" }: { className?: string }) => (
-    <Card className={className} data-oid="t1alxwa">
-      <CardHeader data-oid="b2qf_59">
-        <CardTitle className="flex items-center gap-2" data-oid="2m:3d9-">
-          <Filter className="h-4 w-4" data-oid="ak5d8m3" />
+    <Card className={className} data-oid="ld4o61l">
+      <CardHeader data-oid="xli:__4">
+        <CardTitle className="flex items-center gap-2" data-oid="x11mk61">
+          <Filter className="h-4 w-4" data-oid="nxpkjay" />
           Filter by
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6" data-oid="ukyc7s-">
+      <CardContent className="space-y-6" data-oid="d7r9-7n">
         {/* Categories */}
-        <div className="space-y-3" data-oid="q3rcu1n">
-          <div className="flex items-center justify-between" data-oid="c6roshq">
-            <Label data-oid="dj_fhga">Choose a category</Label>
+        <div className="space-y-3" data-oid="r-e7spd">
+          <div className="flex items-center justify-between" data-oid="whm8ls_">
+            <Label data-oid="80kp0w2">Choose a category</Label>
             {selectedCategories.length > 0 && (
               <Button
                 variant="link"
@@ -234,18 +234,18 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                   updateURL([], selectedLanguages, selectedTags, searchQuery);
                 }}
                 className="h-auto p-0 text-xs text-primary"
-                data-oid="a72saw_"
+                data-oid="efni::w"
               >
                 Reset
               </Button>
             )}
           </div>
-          <div className="space-y-2" data-oid="cbpcpr9">
+          <div className="space-y-2" data-oid="cczb8t:">
             {categories.map((category) => (
               <div
                 key={category.id}
                 className="flex items-center space-x-2"
-                data-oid="6.m.i8q"
+                data-oid="mhbesf0"
               >
                 <Checkbox
                   id={category.id}
@@ -253,15 +253,15 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                   onCheckedChange={(checked) =>
                     handleCategoryToggle(category.id, !!checked)
                   }
-                  data-oid="gbadpix"
+                  data-oid="5gvlj-j"
                 />
 
                 <Label
                   htmlFor={category.id}
                   className="text-sm font-normal flex items-center gap-2"
-                  data-oid="y::ddfl"
+                  data-oid="ip76j2j"
                 >
-                  <category.icon className="h-3 w-3" data-oid="5:e:ch:" />
+                  <category.icon className="h-3 w-3" data-oid="4qimyit" />
 
                   {category.title}
                 </Label>
@@ -271,9 +271,9 @@ export default function PromptClient({ prompts }: PromptClientProps) {
         </div>
 
         {/* Languages */}
-        <div className="space-y-3" data-oid="x_g1r2d">
-          <div className="flex items-center justify-between" data-oid="adrmrqx">
-            <Label data-oid="6.v-wqn">Language</Label>
+        <div className="space-y-3" data-oid="08r7h5o">
+          <div className="flex items-center justify-between" data-oid="82t-h:8">
+            <Label data-oid="uwck-km">Language</Label>
             {selectedLanguages.length > 0 && (
               <Button
                 variant="link"
@@ -283,20 +283,20 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                   updateURL(selectedCategories, [], selectedTags, searchQuery);
                 }}
                 className="h-auto p-0 text-xs text-primary"
-                data-oid="bxf0rjj"
+                data-oid=":rknpz:"
               >
                 Reset
               </Button>
             )}
           </div>
-          <div className="space-y-2" data-oid="qlpc3cx">
+          <div className="space-y-2" data-oid="cend5jd">
             {languages
               .slice(0, showMoreLanguages ? languages.length : 5)
               .map((language) => (
                 <div
                   key={language}
                   className="flex items-center space-x-2"
-                  data-oid="nsengkf"
+                  data-oid="smzyvy0"
                 >
                   <Checkbox
                     id={`lang-${language}`}
@@ -304,13 +304,13 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                     onCheckedChange={(checked) =>
                       handleLanguageToggle(language, !!checked)
                     }
-                    data-oid="6p__5rn"
+                    data-oid="c7yhysw"
                   />
 
                   <Label
                     htmlFor={`lang-${language}`}
                     className="text-sm font-normal"
-                    data-oid="51g_x_y"
+                    data-oid="b.9gz1p"
                   >
                     {language}
                   </Label>
@@ -322,7 +322,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                 size="sm"
                 onClick={() => setShowMoreLanguages(!showMoreLanguages)}
                 className="h-auto p-0 text-xs text-muted-foreground"
-                data-oid=":59v8jr"
+                data-oid="l4rmwjv"
               >
                 {showMoreLanguages ? "Less" : "More"}
               </Button>
@@ -331,9 +331,9 @@ export default function PromptClient({ prompts }: PromptClientProps) {
         </div>
 
         {/* Tags */}
-        <div className="space-y-3" data-oid="wkcjqy7">
-          <div className="flex items-center justify-between" data-oid="vd5zgwy">
-            <Label data-oid="v0s_hld">Tags</Label>
+        <div className="space-y-3" data-oid="nc12xa3">
+          <div className="flex items-center justify-between" data-oid="lhavka4">
+            <Label data-oid="4.:vw_:">Tags</Label>
             {selectedTags.length > 0 && (
               <Button
                 variant="link"
@@ -348,30 +348,30 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                   );
                 }}
                 className="h-auto p-0 text-xs text-primary"
-                data-oid="hxth9f7"
+                data-oid="c_zrl1w"
               >
                 Reset
               </Button>
             )}
           </div>
-          <div className="space-y-2" data-oid="e2411fp">
+          <div className="space-y-2" data-oid="gv1w34w">
             {allTags.slice(0, showMoreTags ? allTags.length : 5).map((tag) => (
               <div
                 key={tag}
                 className="flex items-center space-x-2"
-                data-oid="a9o20iu"
+                data-oid="fpjovm:"
               >
                 <Checkbox
                   id={tag}
                   checked={selectedTags.includes(tag)}
                   onCheckedChange={(checked) => handleTagToggle(tag, !!checked)}
-                  data-oid="8dt061-"
+                  data-oid="jb.glfp"
                 />
 
                 <Label
                   htmlFor={tag}
                   className="text-sm font-normal"
-                  data-oid="8r:tfic"
+                  data-oid="4.jwmx:"
                 >
                   {tag}
                 </Label>
@@ -383,7 +383,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                 size="sm"
                 onClick={() => setShowMoreTags(!showMoreTags)}
                 className="h-auto p-0 text-xs text-muted-foreground"
-                data-oid="ro1l-60"
+                data-oid="r1t9ex5"
               >
                 {showMoreTags ? "Less" : "More"}
               </Button>
@@ -395,51 +395,51 @@ export default function PromptClient({ prompts }: PromptClientProps) {
   );
 
   return (
-    <div className="min-h-screen bg-background" data-oid="8b:_9.m">
+    <div className="min-h-screen bg-background" data-oid="_0dmc.i">
       {/* Hero Section */}
-      <HeroSection stats={heroStats} data-oid="cau3hb3" />
+      <HeroSection stats={heroStats} data-oid="ih0f_7t" />
 
       <div
         id="prompts"
         className="container mx-auto px-4 py-8"
-        data-oid="980.:p_"
+        data-oid="0lp9:wv"
       >
-        <div className="flex flex-col lg:flex-row gap-8" data-oid="4zppyye">
+        <div className="flex flex-col lg:flex-row gap-8" data-oid="5-gghe9">
           {/* Desktop Left Sidebar - Filters */}
           <div
             className="hidden lg:block w-80 flex-shrink-0"
-            data-oid="5y1h.8k"
+            data-oid="ghkhg5q"
           >
-            <FilterSection className="sticky top-8" data-oid="nrm50hj" />
+            <FilterSection className="sticky top-8" data-oid="uru5jg-" />
           </div>
 
           {/* Right Content - Prompt Cards */}
-          <div className="flex-1" data-oid="50f8ts0">
-            <div className="mb-6" data-oid="yo4xfg:">
+          <div className="flex-1" data-oid="v75jlv.">
+            <div className="mb-6" data-oid="bsft40b">
               {/* Mobile Filter Button */}
               <div
                 className="flex items-center justify-between mb-4 lg:hidden"
-                data-oid="b_7ce12"
+                data-oid="l1ndys:"
               >
                 <h2
                   className="text-2xl font-semibold tracking-tight"
-                  data-oid="fwajn0p"
+                  data-oid="96exti-"
                 >
                   {filteredPrompts.length} Prompts
                 </h2>
                 <Sheet
                   open={isFilterOpen}
                   onOpenChange={setIsFilterOpen}
-                  data-oid="n.dicag"
+                  data-oid="a896z:0"
                 >
-                  <SheetTrigger asChild data-oid="prq6dgg">
+                  <SheetTrigger asChild data-oid="jcbj9uc">
                     <Button
                       variant="outline"
                       size="sm"
                       className="gap-2"
-                      data-oid="ierzv.s"
+                      data-oid="8rv95zw"
                     >
-                      <Filter className="h-4 w-4" data-oid="78vn.mp" />
+                      <Filter className="h-4 w-4" data-oid="-n9e.mh" />
                       Filters
                       {selectedCategories.length +
                         selectedLanguages.length +
@@ -448,7 +448,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                         <Badge
                           variant="secondary"
                           className="ml-1 px-1.5 py-0.5 text-xs"
-                          data-oid="d538t3n"
+                          data-oid="iqorm15"
                         >
                           {selectedCategories.length +
                             selectedLanguages.length +
@@ -460,32 +460,32 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                   <SheetContent
                     side="left"
                     className="w-80 overflow-y-auto"
-                    data-oid="q6my7v4"
+                    data-oid="j1w9h3b"
                   >
-                    <SheetHeader data-oid="jc1mhcr">
-                      <SheetTitle data-oid="qcbqd1s">Filters</SheetTitle>
-                      <SheetDescription data-oid="s8smssf">
+                    <SheetHeader data-oid="sklw0:r">
+                      <SheetTitle data-oid="6w:6qa4">Filters</SheetTitle>
+                      <SheetDescription data-oid="j-h3-mb">
                         Filter prompts by category, language, and tags
                       </SheetDescription>
                     </SheetHeader>
-                    <div className="mt-6" data-oid="82dw.58">
-                      <FilterSection data-oid="j2zxodj" />
+                    <div className="mt-6" data-oid="e2rop79">
+                      <FilterSection data-oid="z:jx90u" />
                     </div>
                   </SheetContent>
                 </Sheet>
               </div>
 
               {/* Desktop Header */}
-              <div className="hidden lg:block" data-oid="k_nwkel">
+              <div className="hidden lg:block" data-oid="zk5jtsc">
                 <h2
                   className="text-2xl font-semibold tracking-tight"
-                  data-oid=":30ukf-"
+                  data-oid="nnd83zr"
                 >
                   {filteredPrompts.length} Prompts
                   {totalPages > 1 && (
                     <span
                       className="text-sm font-normal text-muted-foreground ml-2"
-                      data-oid="rodpo2r"
+                      data-oid=".8emab-"
                     >
                       (Page {currentPage} of {totalPages})
                     </span>
@@ -493,10 +493,10 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                 </h2>
               </div>
 
-              <p className="text-muted-foreground" data-oid="y9ncp:8">
+              <p className="text-muted-foreground" data-oid="y4uehp6">
                 Explore our curated collection of Figma MCP prompts
                 {prompts.length !== filteredPrompts.length && (
-                  <span className="block text-sm mt-1" data-oid="1t.-495">
+                  <span className="block text-sm mt-1" data-oid="sao4dq7">
                     Showing {paginatedPrompts.length} of{" "}
                     {filteredPrompts.length} filtered results from{" "}
                     {prompts.length} total prompts
@@ -505,11 +505,11 @@ export default function PromptClient({ prompts }: PromptClientProps) {
               </p>
 
               {/* Search */}
-              <div className="mt-4 space-y-3" data-oid="0sl01u5">
-                <div className="relative max-w-md" data-oid="1ukv8gx">
+              <div className="mt-4 space-y-3" data-oid="mvsm9cq">
+                <div className="relative max-w-md" data-oid="d5e6yvd">
                   <Search
                     className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-                    data-oid="yhi9kzs"
+                    data-oid="3ex5rfl"
                   />
 
                   <Input
@@ -517,7 +517,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                     value={searchQuery}
                     onChange={(e) => handleSearchChange(e.target.value)}
                     className="pl-10"
-                    data-oid="k.-0jn9"
+                    data-oid="ghs48-p"
                   />
                 </div>
 
@@ -525,7 +525,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                 {(selectedCategories.length > 0 ||
                   selectedLanguages.length > 0 ||
                   selectedTags.length > 0) && (
-                  <div className="flex flex-wrap gap-2" data-oid="smq0.y6">
+                  <div className="flex flex-wrap gap-2" data-oid="lqkkbxl">
                     {selectedCategories.map((categoryId) => {
                       const category = categories.find(
                         (c) => c.id === categoryId,
@@ -535,23 +535,23 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                           key={categoryId}
                           variant="secondary"
                           className="flex items-center gap-1"
-                          data-oid="6g1p-tk"
+                          data-oid="ue-2xqs"
                         >
                           {category?.icon && (
                             <category.icon
                               className="h-3 w-3"
-                              data-oid="sw_zy73"
+                              data-oid="w5s20.l"
                             />
                           )}
-                          <span data-oid="vw91k.o">{category?.title}</span>
+                          <span data-oid="2-lvyob">{category?.title}</span>
                           <button
                             onClick={() =>
                               handleCategoryToggle(categoryId, false)
                             }
                             className="ml-1 hover:bg-muted-foreground/20 rounded-full p-0.5"
-                            data-oid="7r-ispu"
+                            data-oid="m904v0g"
                           >
-                            <X className="h-3 w-3" data-oid="qxj7lx3" />
+                            <X className="h-3 w-3" data-oid="5t9ee5d" />
                           </button>
                         </Badge>
                       );
@@ -562,16 +562,16 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                         key={language}
                         variant="secondary"
                         className="flex items-center gap-1"
-                        data-oid="v1jnb0_"
+                        data-oid="fqbmd26"
                       >
-                        <Globe className="h-3 w-3" data-oid="j4rsrju" />
-                        <span data-oid="7n6pvp:">{language}</span>
+                        <Globe className="h-3 w-3" data-oid="cnvshhd" />
+                        <span data-oid="jpwvq2_">{language}</span>
                         <button
                           onClick={() => handleLanguageToggle(language, false)}
                           className="ml-1 hover:bg-muted-foreground/20 rounded-full p-0.5"
-                          data-oid="cp2.jqw"
+                          data-oid=":99c0w-"
                         >
-                          <X className="h-3 w-3" data-oid="plfa24x" />
+                          <X className="h-3 w-3" data-oid="sw80a8n" />
                         </button>
                       </Badge>
                     ))}
@@ -581,15 +581,15 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                         key={tag}
                         variant="secondary"
                         className="flex items-center gap-1"
-                        data-oid="o0r4gth"
+                        data-oid="_sfuw4d"
                       >
-                        <span data-oid="m8:3tne">{tag}</span>
+                        <span data-oid="u0cw.0_">{tag}</span>
                         <button
                           onClick={() => handleTagToggle(tag, false)}
                           className="ml-1 hover:bg-muted-foreground/20 rounded-full p-0.5"
-                          data-oid="4lrvi43"
+                          data-oid="7:vwloi"
                         >
-                          <X className="h-3 w-3" data-oid="yg18z.a" />
+                          <X className="h-3 w-3" data-oid="e_nh5xe" />
                         </button>
                       </Badge>
                     ))}
@@ -600,23 +600,23 @@ export default function PromptClient({ prompts }: PromptClientProps) {
 
             <div
               className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-              data-oid="7.pgf8s"
+              data-oid="8-8u.03"
             >
               {paginatedPrompts.map((prompt) => (
                 <PromptCard
                   key={prompt.slug}
                   prompt={prompt}
-                  data-oid="j9q8o8:"
+                  data-oid="6b323zu"
                 />
               ))}
             </div>
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex justify-center mt-8" data-oid="6nncg2x">
-                <Pagination data-oid="dxl4p-b">
-                  <PaginationContent data-oid="xonfgj-">
-                    <PaginationItem data-oid=":ze-x7l">
+              <div className="flex justify-center mt-8" data-oid="vzv5xdf">
+                <Pagination data-oid="ed.y-1:">
+                  <PaginationContent data-oid="mr49k3k">
+                    <PaginationItem data-oid="q_gcp6s">
                       <PaginationPrevious
                         href="#"
                         onClick={(e) => {
@@ -628,13 +628,13 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                             ? "pointer-events-none opacity-50"
                             : ""
                         }
-                        data-oid="kwu1hs5"
+                        data-oid="cr3fk:0"
                       />
                     </PaginationItem>
 
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                       (page) => (
-                        <PaginationItem key={page} data-oid="0:o23j7">
+                        <PaginationItem key={page} data-oid="ou:i:yg">
                           <PaginationLink
                             href="#"
                             onClick={(e) => {
@@ -642,7 +642,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                               setCurrentPage(page);
                             }}
                             isActive={currentPage === page}
-                            data-oid="wcy0bdq"
+                            data-oid="03:13os"
                           >
                             {page}
                           </PaginationLink>
@@ -650,7 +650,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                       ),
                     )}
 
-                    <PaginationItem data-oid="frn45_2">
+                    <PaginationItem data-oid=".dtsllu">
                       <PaginationNext
                         href="#"
                         onClick={(e) => {
@@ -663,7 +663,7 @@ export default function PromptClient({ prompts }: PromptClientProps) {
                             ? "pointer-events-none opacity-50"
                             : ""
                         }
-                        data-oid="hs5znq8"
+                        data-oid="ey.o-yb"
                       />
                     </PaginationItem>
                   </PaginationContent>
@@ -672,14 +672,14 @@ export default function PromptClient({ prompts }: PromptClientProps) {
             )}
 
             {filteredPrompts.length === 0 && (
-              <Card className="p-12 text-center" data-oid="gmldp_9">
-                <div className="text-6xl mb-4 opacity-50" data-oid="k47-_lu">
+              <Card className="p-12 text-center" data-oid="53hefor">
+                <div className="text-6xl mb-4 opacity-50" data-oid="uf-fbv2">
                   🔍
                 </div>
-                <CardTitle className="mb-2" data-oid="w98:37_">
+                <CardTitle className="mb-2" data-oid="3002_jy">
                   No prompts found
                 </CardTitle>
-                <CardDescription data-oid="yd0s79-">
+                <CardDescription data-oid="cfvgrqm">
                   Try adjusting your filters or search query to find what
                   you&apos;re looking for.
                 </CardDescription>
@@ -690,10 +690,10 @@ export default function PromptClient({ prompts }: PromptClientProps) {
       </div>
 
       {/* Contributors Section */}
-      <Contributors data-oid="gy_:yi8" />
+      <Contributors data-oid="o-hy3:k" />
 
       {/* Footer */}
-      <Footer data-oid="4fvl:f-" />
+      <Footer data-oid="8vo36_p" />
     </div>
   );
 }

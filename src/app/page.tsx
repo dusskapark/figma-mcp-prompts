@@ -256,14 +256,14 @@ export default async function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        data-oid="-0i.a06"
+        data-oid="qiej-pt"
       />
 
       <Suspense
-        fallback={<div data-oid="kyumcy6">Loading...</div>}
-        data-oid="hxd42j3"
+        fallback={<div data-oid="qjoac:o">Loading...</div>}
+        data-oid="vubt20-"
       >
-        <PromptClient prompts={prompts} data-oid="qr95b3m" />
+        <PromptClient prompts={prompts} data-oid="-06pd_h" />
       </Suspense>
     </>
   );

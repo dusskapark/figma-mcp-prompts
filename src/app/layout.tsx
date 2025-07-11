@@ -87,12 +87,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning data-oid=".grj6i1">
-      <body className="antialiased" suppressHydrationWarning data-oid="n_ojnbl">
-        <ThemeProvider data-oid="g34j8gj">
-          <Header data-oid="65t9v1i" />
+    <html lang="en" suppressHydrationWarning data-oid=".1hym7y">
+      <body className="antialiased" suppressHydrationWarning data-oid="8u8n5o_">
+        <ThemeProvider data-oid="oz36ful">
+          <Header data-oid="ymv43hz" />
           {children}
-          <Toaster data-oid="8902vqz" />
+          <Toaster data-oid="7enf8yg" />
         </ThemeProvider>
       </body>
     </html>
